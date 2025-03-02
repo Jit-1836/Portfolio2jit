@@ -7,8 +7,8 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 require("dotenv").config();
 
-const MONGO_URL =
-  process.env.MONGO_URL || "mongodb://127.0.0.1:27017/portfolioweb";
+const ATLASDB_URL =
+  process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/portfolioweb";
 
 main()
   .then(() => {
@@ -28,7 +28,7 @@ main()
     console.log(err);
   });
 async function main() {
-  await mongoose.connect(MONGO_URL, {
+  await mongoose.connect(ATLASDB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 30000,
@@ -36,7 +36,7 @@ async function main() {
 }
 
 async function main() {
-  await mongoose.connect(MONGO_URL);
+  await mongoose.connect(ATLASDB_URL);
 }
 app.get("/", (req, res) => {
   res.send("hi,i am root");
